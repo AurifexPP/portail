@@ -18,7 +18,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver'
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline'
-
+import StorageIcon from '@material-ui/icons/Storage';
 
 
 
@@ -93,12 +93,16 @@ export default function CrewProfile () {
                     <ListItemText primary={'Espace Discourse'} />
                 </ListItem>
 
-                <ListItem button key={'1'}>
+                <ListItem button key={'2'}>
                     <ListItemIcon><RecordVoiceOverIcon /></ListItemIcon>
-                    <ListItemText primary={'Chat Discord'} />
+                    <ListItemText primary={'Espace Discord'} />
                 </ListItem>
 
-                
+                <ListItem button key={'3'}>
+                    <ListItemIcon><StorageIcon /></ListItemIcon>
+                    <ListItemText primary={'Espace Wiki'} />
+                </ListItem>
+               
 
             
               </List>

@@ -3,11 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { Avatar, Badge, Button, CardActionArea, CardActions, Divider, IconButton, Tooltip, } from '@material-ui/core';
-import profilepic from '../../../image/profilepic.jpg'
-import profilepic2 from '../../../image/profile2.jpg'
+import { Divider, } from '@material-ui/core';
+import EventCard from '../EventCard'; 
 
-import StarIcon from '@material-ui/icons/Star';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,38 +37,28 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#9500FF',
     color: 'white', 
   },
-  eventCard: {
-    borderRadius: 5,
-    backgroundColor: 'grey', 
-    padding: 5
-  },  
-  eventTypo: {
-    margin: 5, 
-    padding: 5
-  }
 })); 
 
 
-export default function UserDelegation() {
+export default function CrewCalendar() {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardContent>
         <Typography variant="h6">
-          Calendrier
+          Agenda
         </Typography> 
       </CardContent>
 
       <Divider /> 
 
-      <CardActionArea className={classes.eventCard} >
+      <CardContent>
 
-      <Typography variant="body1" className={classes.eventTypo}>
-        Réunion 23/02/21
-      </Typography>
+      <EventCard />
+      <EventCard />
 
-      </CardActionArea>
+      </CardContent>
 
       
 
