@@ -18,8 +18,8 @@ export default function CrewPage () {
 
                 <Grid container item xs={12} sm={6} lg={9} spacing={2} alignContent="flex-start">
                     <Grid item xs={12}>   
-                    <CrewMembers />                     
-                     </Grid>
+                        <CrewMembers />                     
+                    </Grid>
                     <Grid item xs={6}>
                         <CrewCode />
                     </Grid>

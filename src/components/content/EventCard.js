@@ -10,6 +10,8 @@ import EventOutlinedIcon from '@material-ui/icons/EventOutlined';
 import QueryBuilderOutlinedIcon from '@material-ui/icons/QueryBuilderOutlined';
 import NotificationsActiveOutlinedIcon from '@material-ui/icons/NotificationsActiveOutlined';
 
+import { getFormattedDate } from '../../utils/date.util'
+
 const useStyles = makeStyles ({
   root: {
     backgroundColor: '',
@@ -21,6 +23,11 @@ const useStyles = makeStyles ({
   },  
   headerFont: {
     fontSize: '1.15rem'
+  },
+  headerActions: {
+    alignSelf: "initial",
+    marginTop: 0,
+    marginRight: 0,
   },
   headerColor: {
     height: 10,
@@ -39,8 +46,7 @@ const useStyles = makeStyles ({
 }); 
 
 
-export default function EventCard() {
-
+export default function EventCard(props) {
   const classes = useStyles();
 
   return (
@@ -48,6 +54,7 @@ export default function EventCard() {
       <CardHeader
         classes={{
           title: classes.headerFont, 
+          action: classes.headerActions
         }}
         className={classes.headerColor}
         action={
@@ -57,7 +64,7 @@ export default function EventCard() {
             </Tooltip>
           </IconButton>
         }
-        title="Réunion Equipage Calembourt"
+        title={props.event.title}
       />
 
       <CardActionArea>
@@ -65,26 +72,30 @@ export default function EventCard() {
           <Grid
             container
             direction="row"
-            justify="flexstart"
-            alignItems="flexstart"
+            justify="flex-start"
+            alignItems="flex-start"
             spacing={2}
           >
-            <Grid xs={6}>
-              <Typography className={classes.contentDisplay}>
-                <EventOutlinedIcon className={classes.marginIcon} />
-                23/01/2021
-              </Typography>
-            </Grid>
-            <Grid xs={6}>
+            {
+              props.event.date ?
+              <Grid item xs={6}>
+                <Typography className={classes.contentDisplay}>
+                  <EventOutlinedIcon className={classes.marginIcon} />
+                  {getFormattedDate(props.event.date)}
+                </Typography>
+              </Grid>
+              : ""
+            }
+            <Grid item xs={6}>
               <Typography className={classes.contentDisplay}>
                 <QueryBuilderOutlinedIcon className={classes.marginIcon}/>
-                19h30
+                {props.event.hour}
               </Typography>
             </Grid>
-            <Grid xs={12}>
+            <Grid item xs={12}>
               <Typography className={classes.contentDisplay}>
                 <RoomOutlinedIcon className={classes.marginIcon}/>
-                Discord - Salon Julia Réda
+                {props.event.location}
               </Typography>
             </Grid>
           </Grid>

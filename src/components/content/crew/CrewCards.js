@@ -1,4 +1,6 @@
 import React from 'react';
+import { Redirect } from "react-router-dom";
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -49,9 +51,17 @@ const useStyles = makeStyles({
 export default function CrewCards(props) {
   const classes = useStyles();
 
+  const [state, setState] = React.useState({
+    redirect: false,
+  });
+
+  if (state.redirect) {
+    return <Redirect to={`/crews/${state.crew}`} />
+  }
+
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea onClick={() => setState({redirect: true, crew: 1})}>
 
         <CardMedia
           component="img"

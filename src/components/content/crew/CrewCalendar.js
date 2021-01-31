@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { Divider, } from '@material-ui/core';
+import { Divider } from '@material-ui/core';
 import EventCard from '../EventCard'; 
 
 
@@ -39,6 +39,20 @@ const useStyles = makeStyles((theme) => ({
   },
 })); 
 
+const events = [
+  {
+    title: "Réunion Equipage Calembourt",
+    date: new Date(),
+    hour: "19h30",
+    location: "Discord - Salon Julia Réda",
+  },
+  {
+    title: "Réunion Equipage Calembourt",
+    date: new Date(),
+    hour: "19h30",
+    location: "Discord - Salon Julia Réda",
+  },
+]
 
 export default function CrewCalendar() {
   const classes = useStyles();
@@ -52,16 +66,12 @@ export default function CrewCalendar() {
       </CardContent>
 
       <Divider /> 
-
-      <CardContent>
-
-      <EventCard />
-      <EventCard />
-
-      </CardContent>
-
       
-
+      <CardContent>
+        {events.map((event, index) => 
+          <EventCard key={index} event={event}/>
+        )}
+      </CardContent>
     </Card>
   );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './components/header/Header';
 import CrewHome from './components/content/crew/CrewHome'
+import CrewPage from './components/content/crew/CrewPage'
 import UserPage from './components/content/user/UserPage'
 import Calendar from './components/common/Calendar'
 import {
@@ -18,6 +19,7 @@ function App() {
         <Header/>
         <Switch>
           <Route path="/user" component={UserPage} />
+          <Route path="/crews/:id" component={CrewPage} />
           <Route path="/crews" component={CrewHome} />
           <Route path="/" component={Calendar} />
         </Switch>
